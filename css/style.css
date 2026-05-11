@@ -1,0 +1,146 @@
+/* EDAP Pakistan - Theme Migration 
+   Styles converted to Cyan/Navy School Aesthetic
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@300;400;600;700;800&display=swap");
+
+:root {
+  /* Exact Colors from Ghazali Project */
+  --primary: #17a2b8; /* Cyan */
+  --secondary: #00394f; /* Dark Navy */
+  --bg-light: #f8f9fa;
+  --text-dark: #00394f;
+  --text-muted: #666666;
+  --white: #ffffff;
+
+  --container: 1140px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: var(--text-muted);
+  line-height: 1.6;
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo {
+  font-family: "Handlee", cursive;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* Header & Nav */
+header {
+  background: var(--white);
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 28px;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--secondary);
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* Hero Section - Matching School Layout */
+.hero {
+  background:
+    linear-gradient(rgba(0, 57, 79, 0.7), rgba(0, 57, 79, 0.7)),
+    url("https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200"); /* Placeholder image */
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: var(--primary);
+  color: var(--white);
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: #138496;
+}
+
+/* Cards & Sections */
+.section-padding {
+  padding: 80px 0;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: var(--container);
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.impact-card {
+  background: var(--bg-light);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  border-bottom: 5px solid var(--primary);
+}
+
+.impact-card h3 {
+  color: var(--secondary);
+  margin-bottom: 15px;
+}
+
+footer {
+  background: var(--secondary);
+  color: var(--white);
+  padding: 60px 0 30px;
+  text-align: center;
+}
+
+footer h3,
+.footer-links a {
+  color: var(--white);
+}
