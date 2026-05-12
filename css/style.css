@@ -34,43 +34,70 @@ h4,
   font-weight: 700;
 }
 
-/* Header & Nav */
+/* =========================
+   HEADER & NAVIGATION
+========================= */
+
 header {
   background: var(--white);
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Pushes Logo to left, Button to right */
   align-items: center;
+  padding: 15px 5%; /* Adjusts breathing room on the sides */
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-.logo {
-  font-size: 28px;
-  text-decoration: none;
-  color: var(--primary);
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 30px;
+  /* This ensures the links stay centered between the logo and the CTA */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--secondary);
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1rem;
   transition: var(--transition);
 }
 
 .nav-links a:hover {
   color: var(--primary);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--secondary);
+  z-index: 10; /* Keeps logo above other elements */
+}
+
+/* New class for the Right-Side Button */
+.nav-cta {
+  z-index: 10;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 992px) {
+  .nav-links {
+    position: static;
+    transform: none;
+    display: none; /* Usually you'd swap this for a hamburger menu on mobile */
+  }
 }
 
 /* Hero Section - Matching School Layout */

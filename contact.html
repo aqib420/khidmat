@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | EDAP Pakistan</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 50px;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .contact-info-card {
+        background: var(--secondary);
+        color: white;
+        padding: 40px;
+        border-radius: 20px;
+      }
+
+      .contact-info-card h3 {
+        color: white;
+        margin-bottom: 25px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #eee;
+        border-radius: 10px;
+        font-family: "Nunito", sans-serif;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="index.html" class="logo">EDAP Pakistan</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li>
+            <a href="contact.html" style="color: var(--primary)">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" style="padding: 60px 0; height: auto">
+      <div class="container">
+        <h1 style="font-size: 3rem">Get In Touch</h1>
+        <p>Have questions about our programs or want to support our mission?</p>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="contact-container">
+        <div class="contact-info-card">
+          <h3>Our Office</h3>
+          <p style="margin-bottom: 20px; opacity: 0.9">
+            <strong>Location:</strong><br />
+            Ida Rieu College For Blind & Deaf, Nizami Rd, adjacent Quaid-e-Azam
+            Mausoleum, Karachi.
+          </p>
+          <p style="margin-bottom: 20px; opacity: 0.9">
+            <strong>Email:</strong><br />
+            edap.pakistan@gmail.com
+          </p>
+          <p style="margin-bottom: 30px; opacity: 0.9">
+            <strong>Phone:</strong><br />
+            +92 332 8837889
+          </p>
+
+          <div
+            style="
+              width: 100%;
+              height: 200px;
+              background: rgba(255, 255, 255, 0.1);
+              border-radius: 15px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px dashed white;
+            "
+          >
+            <span style="font-size: 0.9rem">Google Map Placeholder</span>
+          </div>
+        </div>
+
+        <div>
+          <h2 style="margin-bottom: 30px">Send Us a Message</h2>
+          <form action="#">
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
+            >
+              <div class="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Select Service/Interest</label>
+              <select class="form-control">
+                <option value="">-- Choose an option --</option>
+                <option value="computer">
+                  Computer Training (Visually Impaired)
+                </option>
+                <option value="sign">Sign Language Classes (Deaf)</option>
+                <option value="counseling">Psychological Counseling</option>
+                <option value="volunteer">Volunteer Opportunities</option>
+                <option value="donation">Donation Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                placeholder="How can we help you?"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn"
+              style="width: 100%; border: none; cursor: pointer"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top: 0">
+      <div class="container">
+        <h3>EDAP Pakistan</h3>
+        <p>© 2026 EDAP Pakistan. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
