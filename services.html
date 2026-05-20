@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Programs | EDAP Pakistan</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
@@ -17,11 +13,17 @@
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li>
-            <a href="programs.html" style="color: var(--primary)">Programs</a>
-          </li>
+          <li><a href="services.html" class="active">Programs</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="nav-cta">
+          <a
+            href="contact.html"
+            class="btn"
+            style="padding: 10px 20px; font-size: 0.9rem"
+            >Get In Touch</a
+          >
+        </div>
       </nav>
     </header>
 
@@ -43,7 +45,7 @@
       </div>
     </section>
 
-    <section class="section-padding">
+    <section id="computer-training" class="section-padding">
       <div
         class="container"
         style="
@@ -69,12 +71,10 @@
             justify-content: center;
           "
         >
-          <span
-            style="color: var(--text-muted); font-family: &quot;Handlee&quot;"
+          <span style="color: var(--muted)"
             >Computer Training Session Photo</span
           >
         </div>
-
         <div style="flex: 1.5; min-width: 300px">
           <h4
             style="
@@ -93,7 +93,6 @@
             workplaces using specialized software suites and hardware
             adaptations.
           </p>
-
           <ul
             style="
               margin-top: 20px;
@@ -107,7 +106,7 @@
                 ><span style="color: var(--primary)">✓</span> Screen
                 Readers:</strong
               >
-              Mastery of <strong>JAWS</strong> and <strong>NVDA</strong>.
+              Mastery of JAWS and NVDA.
             </li>
             <li style="margin-bottom: 10px">
               <strong
@@ -116,33 +115,24 @@
               >
               Microsoft Office shortcuts for professional tasks.
             </li>
-            <li style="margin-bottom: 10px">
-              <strong
-                ><span style="color: var(--primary)">✓</span> Digital
-                Literacy:</strong
-              >
-              Web accessibility and secure research techniques.
-            </li>
           </ul>
-
           <div style="display: flex; gap: 15px">
-            <a href="contact.html" class="btn">Enroll Now</a>
-            <a
-              href="contact.html"
-              class="btn"
-              style="
-                background: transparent;
-                border: 2px solid var(--primary);
-                color: var(--primary);
-              "
-              >Learn More</a
-            >
+            <a href="contact.html?program=computer" class="btn">Enroll Now</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-padding" style="background-color: var(--bg-light)">
+    <section
+      id="sign-language"
+      class="section-padding"
+      style="
+        background-color: var(--section-cream);
+        border-radius: 40px;
+        width: 95%;
+        margin: 40px auto;
+      "
+    >
       <div
         class="container"
         style="
@@ -172,7 +162,77 @@
             Ensuring seamless integration through Pakistan Sign Language (PSL)
             training for both students and their support networks.
           </p>
+          <div style="display: flex; gap: 15px; margin-top: 30px">
+            <a href="contact.html?program=sign" class="btn">Join Program</a>
+          </div>
+        </div>
+        <div
+          style="
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background: #ddd;
+            border-radius: 20px;
+            border: 2px dashed var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <span style="color: var(--muted)">Sign Language Class Photo</span>
+        </div>
+      </div>
+    </section>
 
+    <section id="mobility-training" class="section-padding">
+      <div
+        class="container"
+        style="
+          max-width: var(--container);
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          gap: 50px;
+          align-items: center;
+          flex-wrap: wrap;
+        "
+      >
+        <div
+          style="
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            background: #eee;
+            border-radius: 20px;
+            border: 2px dashed var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <span style="color: var(--muted)"
+            >Orientation & Mobility Training Photo</span
+          >
+        </div>
+        <div style="flex: 1.5; min-width: 300px">
+          <h4
+            style="
+              color: var(--primary);
+              text-transform: uppercase;
+              letter-spacing: 2px;
+            "
+          >
+            Self-Reliance
+          </h4>
+          <h2 style="font-size: 2.5rem; margin: 15px 0">
+            Orientation & Mobility (O&M)
+          </h2>
+          <p>
+            This program focuses on empowering visually impaired individuals to
+            travel safely, confidently, and independently within their
+            communities using proper white cane techniques and sensory awareness
+            skills.
+          </p>
           <ul
             style="
               margin-top: 20px;
@@ -183,35 +243,96 @@
           >
             <li style="margin-bottom: 10px">
               <strong
-                ><span style="color: var(--primary)">✓</span> PSL
-                Courses:</strong
+                ><span style="color: var(--primary)">✓</span> White Cane
+                Navigation:</strong
               >
-              Structured learning for all proficiency levels.
+              Techniques for indoor and outdoor urban travel.
             </li>
             <li style="margin-bottom: 10px">
               <strong
-                ><span style="color: var(--primary)">✓</span> Family
-                Workshops:</strong
+                ><span style="color: var(--primary)">✓</span> Daily Living
+                Skills:</strong
               >
-              Bridging communication gaps at home.
+              Adaptive training for managing personal spaces and cooking safely.
             </li>
           </ul>
-
           <div style="display: flex; gap: 15px">
-            <a href="contact.html" class="btn">Join Program</a>
-            <a
-              href="contact.html"
-              class="btn"
-              style="
-                background: transparent;
-                border: 2px solid var(--primary);
-                color: var(--primary);
-              "
-              >Inquire Details</a
+            <a href="contact.html?program=mobility" class="btn"
+              >Request Training</a
             >
           </div>
         </div>
+      </div>
+    </section>
 
+    <section
+      id="vocational-crafts"
+      class="section-padding"
+      style="
+        background-color: var(--section-cream);
+        border-radius: 40px;
+        width: 95%;
+        margin: 40px auto;
+      "
+    >
+      <div
+        class="container"
+        style="
+          max-width: var(--container);
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          gap: 50px;
+          align-items: center;
+          flex-wrap: wrap-reverse;
+        "
+      >
+        <div style="flex: 1.5; min-width: 300px">
+          <h4
+            style="
+              color: var(--primary);
+              text-transform: uppercase;
+              letter-spacing: 2px;
+            "
+          >
+            Economic Empowerment
+          </h4>
+          <h2 style="font-size: 2.5rem; margin: 15px 0">
+            Inclusive Arts & Crafts Workshop
+          </h2>
+          <p>
+            A hands-on, creative skill development module designed for deaf and
+            physically disabled students to manufacture premium hand-crafted
+            items, promoting entrepreneurship and financial independence.
+          </p>
+          <ul
+            style="
+              margin-top: 20px;
+              list-style: none;
+              padding: 0;
+              margin-bottom: 30px;
+            "
+          >
+            <li style="margin-bottom: 10px">
+              <strong
+                ><span style="color: var(--primary)">✓</span> Technical
+                Crafts:</strong
+              >
+              Tailoring, weaving, pottery, and tactile arts.
+            </li>
+            <li style="margin-bottom: 10px">
+              <strong
+                ><span style="color: var(--primary)">✓</span> Micro-Business
+                Basics:</strong
+              >
+              Basic bookkeeping and pricing items for exhibitions and local
+              craft markets.
+            </li>
+          </ul>
+          <div style="display: flex; gap: 15px">
+            <a href="contact.html?program=crafts" class="btn">Join Workshop</a>
+          </div>
+        </div>
         <div
           style="
             flex: 1;
@@ -219,21 +340,18 @@
             height: 350px;
             background: #ddd;
             border-radius: 20px;
-            border: 2px dashed var(--secondary);
+            border: 2px dashed var(--green);
             display: flex;
             align-items: center;
             justify-content: center;
           "
         >
-          <span
-            style="color: var(--text-muted); font-family: &quot;Handlee&quot;"
-            >Sign Language Class Photo</span
-          >
+          <span style="color: var(--muted)">Arts & Crafts Workshop Photo</span>
         </div>
       </div>
     </section>
 
-    <section class="section-padding">
+    <section id="counselling" class="section-padding">
       <div
         class="container"
         style="
@@ -259,21 +377,145 @@
           Individual and family support addressing the psychological adjustment
           and social challenges of living with disabilities.
         </p>
-
-        <a href="contact.html" class="btn" style="padding: 15px 40px"
+        <a
+          href="contact.html?program=counseling"
+          class="btn"
+          style="padding: 15px 40px"
           >Book a Consultation</a
         >
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <h3>EDAP Pakistan</h3>
-        <p>Ida Rieu College, Nizami Rd, Karachi.</p>
-        <p style="margin-top: 20px; opacity: 0.7">
-          © 2026 EDAP Pakistan. All Rights Reserved.
+    <footer
+      style="
+        background: #ece5d8;
+        color: var(--text);
+        padding: 80px 0 20px;
+        text-align: left;
+      "
+    >
+      <div
+        class="container"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 40px;
+        "
+      >
+        <div>
+          <h3 style="color: var(--green-dark); margin-bottom: 20px">
+            EDAP Pakistan
+          </h3>
+          <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8">
+            Empowering the Differently Abled Persons Pakistan aims to lead in
+            offering high quality, accessible vocational training and support,
+            equipping every individual for success and societal impact.
+          </p>
+        </div>
+        <div>
+          <h4
+            style="
+              color: var(--text);
+              margin-bottom: 20px;
+              border-bottom: 2px solid var(--primary);
+              display: inline-block;
+            "
+          >
+            Get In Touch
+          </h4>
+          <p style="font-size: 0.9rem; margin-bottom: 10px">
+            <strong>Address:</strong><br />Ida Rieu College, Nizami Rd, Karachi,
+            Pakistan
+          </p>
+          <p style="font-size: 0.9rem; margin-bottom: 10px">
+            <strong>Email:</strong><br />edap.pakistan@gmail.com
+          </p>
+          <p style="font-size: 0.9rem">
+            <strong>Phone:</strong><br />+92-332-8837889
+          </p>
+        </div>
+        <div>
+          <h4
+            style="
+              color: var(--text);
+              margin-bottom: 20px;
+              border-bottom: 2px solid var(--primary);
+              display: inline-block;
+            "
+          >
+            Quick Links
+          </h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.9rem">
+            <li style="margin-bottom: 10px"><a href="index.html">Home</a></li>
+            <li style="margin-bottom: 10px">
+              <a href="about.html">About Us</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="services.html">Our Programs</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            style="
+              color: var(--text);
+              margin-bottom: 20px;
+              border-bottom: 2px solid var(--primary);
+              display: inline-block;
+            "
+          >
+            Newsletter
+          </h4>
+          <p style="font-size: 0.8rem; margin-bottom: 15px; opacity: 0.8">
+            Subscribe for updates on our inclusive initiatives.
+          </p>
+          <form id="newsletterForm" style="display: flex">
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              style="
+                padding: 10px;
+                border-radius: 5px 0 0 5px;
+                border: 1px solid #ddd;
+                width: 100%;
+              "
+            />
+            <button
+              type="submit"
+              style="
+                background: var(--green);
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+              "
+            >
+              Go
+            </button>
+          </form>
+        </div>
+      </div>
+      <div
+        style="
+          text-align: center;
+          margin-top: 60px;
+          padding-top: 20px;
+          border-top: 1px solid var(--border);
+          font-size: 0.8rem;
+        "
+      >
+        <p>© EDAP Pakistan. All Rights Reserved.</p>
+        <p style="opacity: 0.6; margin-top: 5px">
+          Developed by <strong>Habib University Students</strong> as a part of
+          their <strong>Khidmat</strong>
         </p>
       </div>
     </footer>
+    <script src="js/main.js"></script>
   </body>
 </html>

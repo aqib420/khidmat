@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us | EDAP Pakistan</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
@@ -16,12 +12,18 @@
         <a href="index.html" class="logo">EDAP Pakistan</a>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="about.html" style="color: var(--primary)">About Us</a>
-          </li>
-          <li><a href="#">Programs</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="services.html">Programs</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="nav-cta">
+          <a
+            href="contact.html"
+            class="btn"
+            style="padding: 10px 20px; font-size: 0.9rem"
+            >Get In Touch</a
+          >
+        </div>
       </nav>
     </header>
 
@@ -37,15 +39,7 @@
     <section class="section-padding">
       <div
         class="container"
-        style="
-          display: flex;
-          gap: 50px;
-          align-items: center;
-          max-width: var(--container);
-          margin: 0 auto;
-          padding: 0 20px;
-          flex-wrap: wrap;
-        "
+        style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap"
       >
         <div style="flex: 1; min-width: 300px">
           <h4
@@ -60,7 +54,6 @@
           <h2 style="font-size: 2.5rem; margin: 15px 0">
             Empowering Since 2026
           </h2>
-
           <p>
             EDAP (Empowering the Differently Abled Persons) Pakistan was founded
             with a clear vision: to ensure that physical or sensory disabilities
@@ -69,7 +62,6 @@
             <strong>Ms. Shazia Hasan</strong>, who brings dedicated leadership
             to the mission of fostering inclusivity.
           </p>
-
           <p style="margin-top: 15px">
             Operating from the
             <strong>Ida Rieu College for Blind & Deaf</strong> in Karachi, Ms.
@@ -78,14 +70,7 @@
             the blind and deaf community to lead independent, self-reliant
             lives.
           </p>
-
-          <p style="margin-top: 15px">
-            Under her guidance, we are currently focused on building a robust
-            digital presence and automated stakeholder systems to bridge the gap
-            between resources and the individuals who need them most.
-          </p>
         </div>
-
         <div
           style="
             flex: 1;
@@ -99,118 +84,143 @@
             border: 2px dashed var(--primary);
           "
         >
-          <span
-            style="color: var(--text-muted); font-family: &quot;Handlee&quot;"
+          <span style="color: var(--muted)"
             >Place Image of Ida Rieu Campus Here</span
           >
         </div>
       </div>
     </section>
 
-    <section class="section-padding" style="background-color: var(--bg-light)">
-      <div style="text-align: center; margin-bottom: 50px">
-        <h2 style="font-size: 2.5rem">Our Core Values</h2>
-      </div>
-      <div class="impact-grid">
-        <div class="impact-card" style="background: var(--white)">
-          <h3>Inclusivity</h3>
-          <p>
-            Creating spaces where everyone, regardless of their ability, feels
-            they belong and can contribute.
-          </p>
-        </div>
-        <div class="impact-card" style="background: var(--white)">
-          <h3>Independence</h3>
-          <p>
-            Focusing on vocational skills that lead directly to financial and
-            personal self-reliance.
-          </p>
-        </div>
-        <div class="impact-card" style="background: var(--white)">
-          <h3>Innovation</h3>
-          <p>
-            Using adaptive technologies and screen-reading software to break
-            digital barriers.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div style="text-align: center; margin-bottom: 50px">
-        <h2 style="font-size: 2.5rem">Our Leadership</h2>
-      </div>
-
+    <footer
+      style="
+        background: #ece5d8;
+        color: var(--text);
+        padding: 80px 0 20px;
+        text-align: left;
+      "
+    >
       <div
+        class="container"
         style="
-          display: flex;
-          justify-content: center;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
           gap: 40px;
-          flex-wrap: wrap;
-          max-width: var(--container);
-          margin: 0 auto;
-          padding: 0 20px;
         "
       >
-        <div style="text-align: center; width: 250px">
-          <div
-            style="
-              width: 200px;
-              height: 200px;
-              border-radius: 50%;
-              background: #eee;
-              margin: 0 auto 20px;
-              border: 5px solid var(--primary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <span style="font-size: 0.8rem; color: var(--text-muted)"
-              >Founder Photo</span
-            >
-          </div>
-          <h3>Ms. Shazia Hasan</h3>
-          <p style="color: var(--primary); font-weight: 700">
-            Founder & Supervisor
+        <div>
+          <h3 style="color: var(--green-dark); margin-bottom: 20px">
+            EDAP Pakistan
+          </h3>
+          <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8">
+            Empowering the Differently Abled Persons Pakistan aims to lead in
+            offering high quality, accessible vocational training and support,
+            equipping every individual for success and societal impact.
           </p>
         </div>
-
-        <!-- <div style="text-align: center; width: 250px">
-          <div
+        <div>
+          <h4
             style="
-              width: 200px;
-              height: 200px;
-              border-radius: 50%;
-              background: #eee;
-              margin: 0 auto 20px;
-              border: 5px solid var(--secondary);
-              display: flex;
-              align-items: center;
-              justify-content: center;
+              color: var(--text);
+              margin-bottom: 20px;
+              border-bottom: 2px solid var(--primary);
+              display: inline-block;
             "
           >
-            <span style="font-size: 0.8rem; color: var(--text-muted)"
-              >Lead Photo</span
-            >
-          </div>
-          <h3>Aquib Ansari</h3>
-          <p style="color: var(--primary); font-weight: 700">
-            AI Engineer / Project Lead
+            Get In Touch
+          </h4>
+          <p style="font-size: 0.9rem; margin-bottom: 10px">
+            <strong>Address:</strong><br />Ida Rieu College, Nizami Rd, Karachi,
+            Pakistan
           </p>
-        </div> -->
+          <p style="font-size: 0.9rem; margin-bottom: 10px">
+            <strong>Email:</strong><br />edap.pakistan@gmail.com
+          </p>
+          <p style="font-size: 0.9rem">
+            <strong>Phone:</strong><br />+92-332-8837889
+          </p>
+        </div>
+        <div>
+          <h4
+            style="
+              color: var(--text);
+              margin-bottom: 20px;
+              border-bottom: 2px solid var(--primary);
+              display: inline-block;
+            "
+          >
+            Quick Links
+          </h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.9rem">
+            <li style="margin-bottom: 10px"><a href="index.html">Home</a></li>
+            <li style="margin-bottom: 10px">
+              <a href="about.html">About Us</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="services.html">Our Programs</a>
+            </li>
+            <li style="margin-bottom: 10px">
+              <a href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            style="
+              color: var(--text);
+              margin-bottom: 20px;
+              border-bottom: 2px solid var(--primary);
+              display: inline-block;
+            "
+          >
+            Newsletter
+          </h4>
+          <p style="font-size: 0.8rem; margin-bottom: 15px; opacity: 0.8">
+            Subscribe for updates on our inclusive initiatives.
+          </p>
+          <form id="newsletterForm" style="display: flex">
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              style="
+                padding: 10px;
+                border-radius: 5px 0 0 5px;
+                border: 1px solid #ddd;
+                width: 100%;
+              "
+            />
+            <button
+              type="submit"
+              style="
+                background: var(--green);
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+              "
+            >
+              Go
+            </button>
+          </form>
+        </div>
       </div>
-    </section>
-
-    <footer>
-      <h3>Contact EDAP Pakistan</h3>
-      <p>
-        Ida Rieu College, Nizami Rd, adjacent Quaid-e-Azam Mausoleum, Karachi.
-      </p>
-      <p>Email: edap.pakistan@gmail.com</p>
-      <p class="copyright" style="margin-top: 30px; opacity: 0.7">
-        © 2026 EDAP Pakistan. All Rights Reserved.
-      </p>
+      <div
+        style="
+          text-align: center;
+          margin-top: 60px;
+          padding-top: 20px;
+          border-top: 1px solid var(--border);
+          font-size: 0.8rem;
+        "
+      >
+        <p>© EDAP Pakistan. All Rights Reserved.</p>
+        <p style="opacity: 0.6; margin-top: 5px">
+          Developed by <strong>Habib University Students</strong> as a part of
+          their <strong>Khidmat</strong>
+        </p>
+      </div>
     </footer>
+    <script src="js/main.js"></script>
   </body>
 </html>
