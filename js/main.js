@@ -1,163 +1,331 @@
 /**
- * EDAP Pakistan - Core Architecture Script
- * Logic-mapping, cross-page initialization, and form orchestration.
+ * EDAP Pakistan — Empowering the Differently Abled Persons Pakistan
+ * Site-wide JavaScript
+ *
+ * Responsibilities:
+ *   1. Stamp current year in footer
+ *   2. Mobile hamburger menu toggle
+ *   3. Cross-page query-param routing (?program=computer → preselect)
+ *   4. Submit forms to Formspree via fetch with inline success/error states
+ *   5. Map iframe recenter helpers
+ *
+ * Formspree setup:
+ *   The form `action` URLs in HTML use the placeholder YOUR_FORMSPREE_ID.
+ *   Replace it everywhere after creating the form at https://formspree.io.
+ *   See readme.md for the full step-by-step.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  initNavigation();
+  initFooterYear();
+  initMobileNav();
   initCrossPageRoutings();
   initFormHandlers();
+  initLightbox();
 });
 
-/**
- * Automatically Highlights the active nav link based on the current URL path
- */
-function initNavigation() {
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
-  const navLinks = document.querySelectorAll(".nav-links a");
+/* ------------------------------------------------------------------
+   Footer · stamp current year
+------------------------------------------------------------------ */
+function initFooterYear() {
+  document.querySelectorAll("#year").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+}
 
-  navLinks.forEach((link) => {
-    const linkPath = link.getAttribute("href");
-    // Check if the link matches the current path or its anchor variations
-    if (
-      linkPath === currentPath ||
-      (currentPath === "" && linkPath === "index.html")
-    ) {
-      link.classList.add("active");
-      link.style.color = "var(--green-dark)";
-      link.style.borderBottom = "2px solid var(--primary)";
-    } else {
-      link.classList.remove("active");
+/* ------------------------------------------------------------------
+   Mobile navigation · hamburger toggle
+------------------------------------------------------------------ */
+function initMobileNav() {
+  const toggle = document.querySelector(".nav-toggle");
+  const links = document.getElementById("primaryNav");
+  if (!toggle || !links) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = links.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  links.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      links.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      links.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
     }
   });
 }
 
-/**
- * Cross-Page Parameter Routing
- * If a user clicks 'Enroll Now' from services.html, it auto-selects that specific option on contact.html
- */
+/* ------------------------------------------------------------------
+   Cross-page parameter routing
+   If a user clicks "Enroll Now" on programs.html, the contact form
+   pre-selects that program option.
+------------------------------------------------------------------ */
 function initCrossPageRoutings() {
-  // Check if we are on the contact page
   const interestDropdown = document.getElementById("interestSelect");
   if (!interestDropdown) return;
 
-  // Parse URL query parameters (e.g., contact.html?program=computer)
   const urlParams = new URLSearchParams(window.location.search);
   const programParam = urlParams.get("program");
+  if (!programParam) return;
 
-  if (programParam) {
-    // Match query parameters to select values
-    switch (programParam) {
-      case "computer":
-        interestDropdown.value = "computer";
-        break;
-      case "sign":
-        interestDropdown.value = "sign";
-        break;
-      case "mobility":
-        interestDropdown.value = "mobility";
-        break;
-      case "crafts":
-        interestDropdown.value = "crafts";
-        break;
-      case "counseling":
-        interestDropdown.value = "counseling";
-        break;
-      default:
-        interestDropdown.value = "";
-    }
+  const allowed = ["computer", "sign", "counseling"];
+  if (allowed.includes(programParam)) {
+    interestDropdown.value = programParam;
   }
 }
 
-/**
- * Form Validation and Event Interception
- * Replaces default submission actions with clean custom feedback loops
- */
+/* ------------------------------------------------------------------
+   Form handlers · submit to Formspree via fetch
+------------------------------------------------------------------ */
 function initFormHandlers() {
-  // 1. Home Page Contact Form
-  const homeForm = document.getElementById("homeContactForm");
-  if (homeForm) {
-    homeForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      handleFormSubmission(
-        homeForm,
-        "Thank you for contacting EDAP Pakistan! We will review your query and get back to you shortly.",
-      );
-    });
-  }
+  initAjaxForm(document.getElementById("homeContactForm"), {
+    successMessage:
+      "Thank you for contacting EDAP Pakistan. We will review your query and get back to you shortly.",
+  });
 
-  // 2. Main Contact Page Form
-  const mainForm = document.getElementById("mainContactForm");
-  if (mainForm) {
-    mainForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      handleFormSubmission(
-        mainForm,
-        "Your message has been sent successfully! Our campus coordinator at Ida Rieu will contact you soon.",
-      );
-    });
-  }
+  initAjaxForm(document.getElementById("mainContactForm"), {
+    successMessage:
+      "Your message has been sent. The EDAP team will be in touch soon.",
+  });
 
-  // 3. Global Newsletter Forms
-  const newsletterForms = document.querySelectorAll("#newsletterForm");
-  newsletterForms.forEach((form) => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const emailInput = form.querySelector("input[type='email']");
-      alert(
-        `Success! ${emailInput.value} has been subscribed to EDAP Pakistan updates.`,
-      );
-      form.reset();
+  document.querySelectorAll("#newsletterForm").forEach((form) => {
+    initAjaxForm(form, {
+      successMessage:
+        "You're subscribed. Thanks for supporting EDAP Pakistan.",
+      compact: true,
     });
   });
 }
 
-/**
- * Generic Submission Processor
- * Displays confirmation styling and resets form UI components
- */
-function handleFormSubmission(formElement, successMessage) {
-  // Create an elegant inline status message overlay
-  const originalButton = formElement.querySelector("button[type='submit']");
-  const originalButtonText = originalButton.innerText;
+function initAjaxForm(form, opts) {
+  if (!form) return;
 
-  // Provide an immediate processing state indicator
-  originalButton.innerText = "Processing...";
-  originalButton.disabled = true;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  setTimeout(() => {
-    // Reset button states
-    originalButton.innerText = originalButtonText;
-    originalButton.disabled = false;
+    // Honeypot — if filled, it's a bot
+    const honeypot = form.querySelector("input[name='_gotcha']");
+    if (honeypot && honeypot.value) return;
 
-    // Show elegant browser message banner
-    alert(successMessage);
+    // Clear any prior banner
+    form.querySelectorAll(".form-error").forEach((el) => el.remove());
 
-    // Clear inputs safely
-    formElement.reset();
-  }, 1000); // Simulated network delay for professional presentation
+    // If the Formspree ID hasn't been replaced yet, fail loudly in dev
+    if (form.action.includes("YOUR_FORMSPREE_ID")) {
+      showFormError(
+        form,
+        "This site isn't connected to a form service yet. Please email us at edap.pakistan@gmail.com."
+      );
+      return;
+    }
+
+    const submitBtn = form.querySelector("button[type='submit']");
+    const originalText = submitBtn.innerText;
+    submitBtn.innerText = "Sending…";
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        const card = buildSuccessCard(form, opts);
+        form.parentNode.replaceChild(card, form);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        const reason =
+          (data.errors && data.errors.map((e) => e.message).join(", ")) ||
+          "Something went wrong. Please try again or email us at edap.pakistan@gmail.com.";
+        showFormError(form, reason);
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      showFormError(
+        form,
+        "We couldn't reach our server. Check your internet connection or email us at edap.pakistan@gmail.com."
+      );
+      submitBtn.innerText = originalText;
+      submitBtn.disabled = false;
+    }
+  });
 }
 
 /**
- * Map Reset Trigger Engine - Home Window Viewport
+ * Build the success card shown in place of the form after a successful submit.
+ * Includes a summary of what the user sent + a note to screenshot it.
  */
+function buildSuccessCard(form, opts) {
+  const card = document.createElement("div");
+  card.className = opts.compact
+    ? "form-success form-success-compact"
+    : "form-success form-success-large";
+  card.setAttribute("role", "status");
+
+  const heading = document.createElement("div");
+  heading.className = "form-success-heading";
+  heading.innerHTML =
+    '<span class="form-success-icon" aria-hidden="true">✓</span><span>' +
+    escapeHtml(opts.successMessage) +
+    "</span>";
+  card.appendChild(heading);
+
+  // Compact cards (newsletter) skip the summary — just the check + message
+  if (opts.compact) return card;
+
+  const summary = buildSubmissionSummary(form);
+  if (summary) card.appendChild(summary);
+
+  return card;
+}
+
+/**
+ * Render a definition-list of what the user submitted, skipping hidden /
+ * Formspree-internal fields. SELECT values show their visible label, not the
+ * raw value (so "Computer Training (Visually Impaired)" not "computer").
+ */
+function buildSubmissionSummary(form) {
+  const skipFields = ["_subject", "_gotcha", "_replyto", "_next", "_format"];
+  const fieldLabels = {
+    fullname: "Name",
+    email: "Email",
+    interest: "Interest",
+    message: "Message",
+  };
+
+  const entries = [];
+  for (const el of form.elements) {
+    if (!el.name || skipFields.includes(el.name)) continue;
+    if (el.type === "hidden" || el.type === "submit" || el.type === "button") continue;
+
+    let value;
+    if (el.tagName === "SELECT") {
+      const opt = el.options[el.selectedIndex];
+      if (!opt || !opt.value) continue;
+      value = opt.text;
+    } else if (el.type === "checkbox" || el.type === "radio") {
+      if (!el.checked) continue;
+      value = el.value;
+    } else {
+      value = el.value;
+    }
+    if (!value || !value.toString().trim()) continue;
+    const label = fieldLabels[el.name] || el.name;
+    entries.push({ label, value: value.toString().trim() });
+  }
+
+  if (entries.length === 0) return null;
+
+  const wrap = document.createElement("div");
+  wrap.className = "submission-summary";
+
+  const title = document.createElement("h4");
+  title.className = "submission-summary-title";
+  title.textContent = "Here's what you sent us";
+  wrap.appendChild(title);
+
+  const dl = document.createElement("dl");
+  dl.className = "submission-summary-list";
+  for (const entry of entries) {
+    const dt = document.createElement("dt");
+    dt.textContent = entry.label;
+    const dd = document.createElement("dd");
+    dd.textContent = entry.value;
+    dl.appendChild(dt);
+    dl.appendChild(dd);
+  }
+  wrap.appendChild(dl);
+
+  const note = document.createElement("p");
+  note.className = "submission-summary-note";
+  note.textContent =
+    "Please screenshot this confirmation — a copy is not sent to your email.";
+  wrap.appendChild(note);
+
+  return wrap;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function showFormError(form, message) {
+  const banner = document.createElement("div");
+  banner.className = "form-error";
+  banner.setAttribute("role", "alert");
+  banner.textContent = message;
+  form.insertBefore(banner, form.firstChild);
+}
+
+/* ------------------------------------------------------------------
+   Lightbox · click a photo in .photo-gallery to enlarge it
+------------------------------------------------------------------ */
+function initLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return;
+
+  const imgEl = document.getElementById("lightboxImage");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+  const triggers = document.querySelectorAll("[data-lightbox]");
+  if (!triggers.length) return;
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || "";
+    lightbox.hidden = false;
+    requestAnimationFrame(() => lightbox.classList.add("is-open"));
+    document.body.style.overflow = "hidden";
+  };
+  const close = () => {
+    lightbox.classList.remove("is-open");
+    document.body.style.overflow = "";
+    setTimeout(() => {
+      lightbox.hidden = true;
+      imgEl.src = "";
+    }, 250);
+  };
+
+  triggers.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const img = link.querySelector("img");
+      open(link.getAttribute("href"), img ? img.alt : "");
+    });
+  });
+
+  closeBtn.addEventListener("click", close);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("is-open")) close();
+  });
+}
+
+/* ------------------------------------------------------------------
+   Map · recenter helpers (reload the iframe)
+------------------------------------------------------------------ */
 function recenterHomeMap() {
-  const mapFrame = document.getElementById("homeMapFrame");
-  if (mapFrame) {
-    const frameSrc = mapFrame.src;
-    mapFrame.src = "";
-    mapFrame.src = frameSrc;
-  }
+  reloadIframe("homeMapFrame");
 }
-
-/**
- * Map Reset Trigger Engine - Contact Layout Context
- */
 function recenterContactMap() {
-  const mapFrame = document.getElementById("contactMapFrame");
-  if (mapFrame) {
-    const frameSrc = mapFrame.src;
-    mapFrame.src = "";
-    mapFrame.src = frameSrc;
-  }
+  reloadIframe("contactMapFrame");
+}
+function reloadIframe(id) {
+  const frame = document.getElementById(id);
+  if (!frame) return;
+  const src = frame.src;
+  frame.src = "";
+  frame.src = src;
 }
