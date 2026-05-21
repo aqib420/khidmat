@@ -3,466 +3,364 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EDAP Pakistan | Empowering Differently Abled Persons</title>
+    <meta name="theme-color" content="#00394f" />
+    <meta
+      name="description"
+      content="Empowering the Differently Abled Persons Pakistan (EDAP) — an NGO based in Karachi providing computer training, sign language education and counselling for the blind, deaf and differently abled community since 2008."
+    />
+    <title>
+      EDAP — Empowering the Differently Abled Persons Pakistan
+    </title>
+
+    <link rel="icon" type="image/svg+xml" href="images/logos/logo-mark.svg" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <a href="index.html" class="logo">EDAP Pakistan</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
+    <!-- =====================================================
+         HEADER · keep markup identical across all pages
+    ====================================================== -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Primary">
+        <a href="index.html" class="brand" aria-label="EDAP Pakistan — home">
+          <img src="images/logos/logo-mark.svg" alt="" class="brand-icon" />
+          <span class="brand-text">
+            <span class="brand-mark">EDA<span>P</span></span>
+            <span class="brand-tagline"
+              >Empowering the Differently Abled Persons Pakistan</span
+            >
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul id="primaryNav" class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="has-dropdown">
+            <a href="about.html" aria-haspopup="true">About</a>
+            <ul class="dropdown">
+              <li><a href="about.html">About EDAP</a></li>
+              <li><a href="founder.html">About the Founder</a></li>
+            </ul>
+          </li>
           <li><a href="programs.html">Programs</a></li>
+          <li><a href="media.html">Media</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
 
         <div class="nav-cta">
-          <a
-            href="contact.html"
-            class="btn"
-            style="padding: 10px 20px; font-size: 0.9rem"
-            >Get In Touch</a
-          >
+          <a href="contact.html" class="btn btn-sm">Get In Touch</a>
         </div>
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="container">
-        <h1>Empowering the Differently Abled</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 30px">
-          Fostering inclusivity for the blind, deaf, and differently abled
-          community in Karachi.
-        </p>
-        <a href="contact.html" class="btn">Join Our Mission</a>
-      </div>
-    </section>
-
-    <section class="section-padding">
-      <div
-        style="
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 0 20px;
-        "
-      >
-        <h2 style="font-size: 2.5rem; margin-bottom: 20px">Welcome to EDAP</h2>
-        <p>
-          Based at <strong>Ida Rieu College</strong>, our project bridges the
-          gap for differently abled individuals through technology and
-          stakeholder support. Founded by <strong>Ms. Shazia Hasan</strong>, we
-          are committed to building a more accessible Pakistan.
-        </p>
-      </div>
-
-      <div class="impact-grid">
-        <div
-          class="impact-card"
-          style="
-            background:
-              linear-gradient(rgba(0, 57, 79, 0.75), rgba(0, 57, 79, 0.75)),
-              url(&quot;images/ph_23098_169500.jpg&quot;);
-            background-size: cover;
-            background-position: center;
-            color: white;
-            border: none;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-          "
-        >
-          <h3 style="color: white; margin-bottom: 15px">Computer Training</h3>
-          <p style="opacity: 0.9; margin-bottom: 25px">
-            Specialized digital literacy using screen-reading software and
-            adaptive technology for vocational success.
+    <main id="main">
+      <!-- =====================================================
+           HERO
+      ====================================================== -->
+      <section class="hero">
+        <div class="container">
+          <h1>Empowering the Differently Abled Persons Pakistan</h1>
+          <p>
+            An NGO fostering inclusivity for the blind, deaf and differently
+            abled community in Karachi — through technology, training and
+            counselling since 2008.
           </p>
-          <a
-            href="programs.html"
-            class="btn"
-            style="padding: 12px 30px; font-size: 0.9rem"
-            >Learn More</a
-          >
+          <a href="contact.html" class="btn">Join Our Mission</a>
         </div>
+      </section>
 
-        <div
-          class="impact-card"
-          style="
-            background:
-              linear-gradient(rgba(0, 57, 79, 0.75), rgba(0, 57, 79, 0.75)),
-              url(&quot;images/image.jpg&quot;);
-            background-size: cover;
-            background-position: center;
-            color: white;
-            border: none;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-          "
-        >
-          <h3 style="color: white; margin-bottom: 15px">Sign Language</h3>
-          <p style="opacity: 0.9; margin-bottom: 25px">
-            Structured courses for deaf individuals and their families to bridge
-            communication gaps at home and work.
+      <!-- =====================================================
+           WELCOME
+      ====================================================== -->
+      <section class="section-padding">
+        <div class="container" style="text-align: center; max-width: 820px;">
+          <p class="eyebrow">Who we are</p>
+          <h2>A digital home for an 18-year mission</h2>
+          <p>
+            Operating from
+            <strong>Ida Rieu College for Blind &amp; Deaf</strong> in Karachi,
+            <strong>Empowering the Differently Abled Persons Pakistan</strong>
+            has, since 2008, bridged the gap for differently abled individuals
+            through technology and stakeholder support. Led by founder
+            <strong>Ms. Shazia Hasan</strong>, our work makes Pakistan more
+            accessible — one learner, one family, one workplace at a time.
           </p>
-          <a
-            href="programs.html"
-            class="btn"
-            style="padding: 12px 30px; font-size: 0.9rem"
-            >Learn More</a
-          >
         </div>
 
-        <div
-          class="impact-card"
-          style="
-            background:
-              linear-gradient(rgba(0, 57, 79, 0.75), rgba(0, 57, 79, 0.75)),
-              url(&quot;images/two-disabled-persons-working-in-office-scaled.jpg&quot;);
-            background-size: cover;
-            background-position: center;
-            color: white;
-            border: none;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-          "
-        >
-          <h3 style="color: white; margin-bottom: 15px">
-            Personal Counselling
-          </h3>
-          <p style="opacity: 0.9; margin-bottom: 25px">
-            Professional support addressing psychological adjustment and social
-            challenges of living with disabilities.
-          </p>
-          <a
-            href="programs.html"
-            class="btn"
-            style="padding: 12px 30px; font-size: 0.9rem"
-            >Learn More</a
-          >
+        <div class="container">
+          <div class="impact-grid">
+            <article class="impact-card impact-card-1">
+              <h3>Computer Training</h3>
+              <p>
+                Specialized digital literacy using screen-reading software and
+                adaptive technology for vocational success.
+              </p>
+              <a href="programs.html#computer-training" class="btn btn-sm"
+                >Learn More</a
+              >
+            </article>
+
+            <article class="impact-card impact-card-2">
+              <h3>Sign Language</h3>
+              <p>
+                Structured Pakistan Sign Language courses for the deaf and their
+                families to bridge communication at home and work.
+              </p>
+              <a href="programs.html#sign-language" class="btn btn-sm"
+                >Learn More</a
+              >
+            </article>
+
+            <article class="impact-card impact-card-3">
+              <h3>Counselling</h3>
+              <p>
+                Professional support addressing the psychological adjustment
+                and social challenges of living with disability.
+              </p>
+              <a href="programs.html#counselling" class="btn btn-sm"
+                >Learn More</a
+              >
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-padding" style="background-color: var(--bg-light)">
-      <div class="container">
-        <div style="text-align: center; margin-bottom: 50px">
-          <h4
-            style="
-              color: var(--primary);
-              text-transform: uppercase;
-              letter-spacing: 2px;
-            "
-          >
-            Connect With Us
-          </h4>
-          <h2 style="font-size: 2.5rem">Contact For Any Query</h2>
+      <!-- =====================================================
+           MEET THE FOUNDER · teaser → founder.html
+      ====================================================== -->
+      <section class="founder-teaser">
+        <div class="container">
+          <div class="founder-teaser-photo">
+            <img
+              src="images/media/main-profile.jpeg"
+              alt="Ms. Shazia Hasan, founder of EDAP Pakistan"
+            />
+          </div>
+          <div>
+            <p class="eyebrow">Meet the founder</p>
+            <h2>Ms. Shazia Hasan</h2>
+            <p>
+              Pakistan's <strong>first visually impaired Microsoft computer
+              user</strong>. Educator, mentor and the founder of EDAP Pakistan
+              — who lost her sight to glaucoma at age nine and has spent the
+              decades since making sure that does not have to be the end of
+              anyone's story.
+            </p>
+            <p class="pull">
+              "We are not disabled — we are differently abled."
+            </p>
+            <a href="founder.html" class="btn">Read her full story</a>
+          </div>
         </div>
+      </section>
 
-        <div
-          style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-          "
-        >
-          <div
-            style="
-              position: relative;
-              height: 400px;
-              border-radius: 20px;
-              overflow: hidden;
-              border: 5px solid var(--white);
-              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            "
-          >
-            <button
-              type="button"
-              onclick="recenterHomeMap()"
-              style="
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                z-index: 10;
-                background: var(--primary);
-                color: white;
-                border: none;
-                padding: 10px 15px;
-                border-radius: 8px;
-                font-weight: bold;
-                cursor: pointer;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                font-family: inherit;
-                font-size: 0.85rem;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-              "
-            >
-              📍 Recenter to Ida Rieu
-            </button>
-
-            <iframe
-              id="homeMapFrame"
-              src="https://maps.google.com/maps?q=Ida+Rieu+School+and+College+For+Blind+and+Deaf,Nizami+Road,Karachi&t=&z=17&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
+      <!-- =====================================================
+           CONTACT TEASER (map + short form)
+      ====================================================== -->
+      <section class="section-padding section-cream">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 50px;">
+            <p class="eyebrow">Connect with us</p>
+            <h2>Contact for any query</h2>
           </div>
 
-          <div
-            style="
-              background: var(--white);
-              padding: 40px;
-              border-radius: 20px;
-              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            "
-          >
-            <form id="homeContactForm">
+          <div class="form-grid">
+            <div class="map-wrap">
+              <button
+                type="button"
+                class="map-recenter"
+                onclick="recenterHomeMap()"
+              >
+                <span aria-hidden="true">📍</span> Recenter to Ida Rieu
+              </button>
+              <iframe
+                id="homeMapFrame"
+                title="Map showing Ida Rieu College for Blind and Deaf, Karachi"
+                src="https://maps.google.com/maps?q=Ida+Rieu+School+and+College+For+Blind+and+Deaf,Nizami+Road,Karachi&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="form-card">
+              <form
+                id="homeContactForm"
+                action="https://formspree.io/f/mzdwrrnz"
+                method="POST"
+                novalidate
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New query — EDAP Pakistan (Home form)"
+                />
+                <input
+                  type="text"
+                  name="_gotcha"
+                  style="display:none"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+                <div class="form-group">
+                  <label for="homeName">Full Name</label>
+                  <input
+                    id="homeName"
+                    type="text"
+                    name="fullname"
+                    class="form-control"
+                    required
+                    placeholder="Your name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="homeEmail">Email Address</label>
+                  <input
+                    id="homeEmail"
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    required
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="homeService">Select Service</label>
+                  <select
+                    id="homeService"
+                    name="interest"
+                    class="form-control"
+                    required
+                  >
+                    <option value="">— Choose —</option>
+                    <option value="computer">Computer Training</option>
+                    <option value="sign">Sign Language</option>
+                    <option value="counseling">Counselling</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="homeMessage">Message</label>
+                  <textarea
+                    id="homeMessage"
+                    name="message"
+                    class="form-control"
+                    rows="4"
+                    required
+                    placeholder="How can we help?"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER · keep markup identical across all pages
+    ====================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h3>EDAP Pakistan</h3>
+            <p class="footer-intro">
+              Empowering the Differently Abled Persons Pakistan offers
+              high-quality, accessible vocational training and support —
+              equipping every individual for success and societal impact.
+            </p>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <p class="contact-line">
+              <strong>Address</strong>Ida Rieu College, Nizami Rd, Karachi,
+              Pakistan
+            </p>
+            <p class="contact-line">
+              <strong>Email</strong>edap.pakistan@gmail.com
+            </p>
+            <p class="contact-line">
+              <strong>Phone</strong>+92-332-8837889
+            </p>
+            <a
+              href="https://www.facebook.com/empowering.tdp/"
+              target="_blank"
+              rel="noopener"
+              class="footer-social"
+              aria-label="EDAP Pakistan on Facebook"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5 3.66 9.15 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.77l-.44 2.91h-2.33V22c4.78-.78 8.44-4.93 8.44-9.93z"/>
+              </svg>
+              Follow on Facebook
+            </a>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About EDAP</a></li>
+              <li><a href="founder.html">About the Founder</a></li>
+              <li><a href="programs.html">Our Programs</a></li>
+              <li><a href="media.html">Media</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Newsletter</h4>
+            <p class="footer-intro" style="margin-bottom: 14px;">
+              Subscribe for updates on our inclusive initiatives.
+            </p>
+            <form
+              id="newsletterForm"
+              class="newsletter-form"
+              action="https://formspree.io/f/mzdwrrnz"
+              method="POST"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="EDAP Newsletter Signup"
+              />
               <input
                 type="text"
-                placeholder="Your Name"
-                required
-                style="
-                  width: 100%;
-                  padding: 15px;
-                  margin-bottom: 20px;
-                  border: 1px solid #ddd;
-                  border-radius: 10px;
-                  font-family: inherit;
-                "
+                name="_gotcha"
+                style="display:none"
+                tabindex="-1"
+                autocomplete="off"
               />
+              <label for="footerEmail" class="sr-only">Email</label>
               <input
+                id="footerEmail"
+                name="email"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Your email"
                 required
-                style="
-                  width: 100%;
-                  padding: 15px;
-                  margin-bottom: 20px;
-                  border: 1px solid #ddd;
-                  border-radius: 10px;
-                  font-family: inherit;
-                "
               />
-              <select
-                required
-                style="
-                  width: 100%;
-                  padding: 15px;
-                  margin-bottom: 20px;
-                  border: 1px solid #ddd;
-                  border-radius: 10px;
-                  color: #666;
-                  font-family: inherit;
-                "
-              >
-                <option value="">Select Service</option>
-                <option value="computer">Computer Training</option>
-                <option value="sign">Sign Language</option>
-                <option value="counseling">Counselling</option>
-              </select>
-              <textarea
-                placeholder="Message"
-                rows="4"
-                required
-                style="
-                  width: 100%;
-                  padding: 15px;
-                  margin-bottom: 20px;
-                  border: 1px solid #ddd;
-                  border-radius: 10px;
-                  font-family: inherit;
-                  resize: vertical;
-                "
-              ></textarea>
-              <button
-                type="submit"
-                class="btn"
-                style="width: 100%; border: none; cursor: pointer"
-              >
-                Send Message
-              </button>
+              <button type="submit">Go</button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
 
-    <footer
-      style="
-        background: var(--secondary);
-        color: white;
-        padding: 80px 0 20px;
-        text-align: left;
-      "
-    >
-      <div
-        class="container"
-        style="
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 40px;
-          max-width: var(--container);
-          margin: 0 auto;
-          padding: 0 20px;
-        "
-      >
-        <div>
-          <h3 style="color: var(--primary); margin-bottom: 20px">
-            EDAP Pakistan
-          </h3>
-          <p style="font-size: 0.9rem; line-height: 1.6; opacity: 0.8">
-            Empowering the Differently Abled Persons Pakistan aims to lead in
-            offering high quality, accessible vocational training and support,
-            equipping every individual for success and societal impact.
+        <div class="footer-bottom">
+          <p>© <span id="year"></span> Empowering the Differently Abled Persons Pakistan. All rights reserved.</p>
+          <p>
+            Developed by <strong>Habib University students</strong> as part of
+            their <strong>Khidmat</strong>.
           </p>
         </div>
-
-        <div>
-          <h4
-            style="
-              color: white;
-              margin-bottom: 20px;
-              border-bottom: 2px solid var(--primary);
-              display: inline-block;
-            "
-          >
-            Get In Touch
-          </h4>
-          <p style="font-size: 0.9rem; margin-bottom: 10px">
-            <strong>Address:</strong><br />Ida Rieu College, Nizami Rd, Karachi,
-            Pakistan
-          </p>
-          <p style="font-size: 0.9rem; margin-bottom: 10px">
-            <strong>Email:</strong><br />edap.pakistan@gmail.com
-          </p>
-          <p style="font-size: 0.9rem">
-            <strong>Phone:</strong><br />+92-332-8837889
-          </p>
-        </div>
-
-        <div>
-          <h4
-            style="
-              color: white;
-              margin-bottom: 20px;
-              border-bottom: 2px solid var(--primary);
-              display: inline-block;
-            "
-          >
-            Quick Links
-          </h4>
-          <ul style="list-style: none; padding: 0; font-size: 0.9rem">
-            <li style="margin-bottom: 10px">
-              <a
-                href="index.html"
-                style="color: white; text-decoration: none; opacity: 0.8"
-                >Home</a
-              >
-            </li>
-            <li style="margin-bottom: 10px">
-              <a
-                href="about.html"
-                style="color: white; text-decoration: none; opacity: 0.8"
-                >About Us</a
-              >
-            </li>
-            <li style="margin-bottom: 10px">
-              <a
-                href="programs.html"
-                style="color: white; text-decoration: none; opacity: 0.8"
-                >Our Programs</a
-              >
-            </li>
-            <li style="margin-bottom: 10px">
-              <a
-                href="contact.html"
-                style="color: white; text-decoration: none; opacity: 0.8"
-                >Contact Us</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4
-            style="
-              color: white;
-              margin-bottom: 20px;
-              border-bottom: 2px solid var(--primary);
-              display: inline-block;
-            "
-          >
-            Newsletter
-          </h4>
-          <p style="font-size: 0.8rem; margin-bottom: 15px; opacity: 0.8">
-            Subscribe for updates on our inclusive initiatives.
-          </p>
-          <form id="newsletterForm" style="display: flex">
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              style="
-                padding: 10px;
-                border-radius: 5px 0 0 5px;
-                border: none;
-                width: 100%;
-                font-family: inherit;
-              "
-            />
-            <button
-              type="submit"
-              style="
-                background: var(--primary);
-                color: white;
-                border: none;
-                padding: 10px;
-                border-radius: 0 5px 5px 0;
-                cursor: pointer;
-                font-family: inherit;
-                font-weight: bold;
-              "
-            >
-              Go
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <div
-        style="
-          text-align: center;
-          margin-top: 60px;
-          padding-top: 20px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          font-size: 0.8rem;
-        "
-      >
-        <p>© EDAP Pakistan. All Rights Reserved.</p>
-        <p style="opacity: 0.6; margin-top: 5px">
-          Developed by <strong>Habib University Students</strong> as a part of
-          their <strong>Khidmat</strong>
-        </p>
       </div>
     </footer>
 
