@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" role="img" aria-label="EDAP — Empowering the Differently Abled Persons Pakistan">
+  <!-- Five abstract figures rising — centre figure highlighted in cyan -->
+  <g transform="translate(12,18)">
+    <!-- Bodies -->
+    <rect x="0"  y="44" width="12" height="20" rx="6" fill="#00394f"/>
+    <rect x="18" y="32" width="12" height="32" rx="6" fill="#00394f"/>
+    <rect x="36" y="20" width="12" height="44" rx="6" fill="#17a2b8"/>
+    <rect x="54" y="32" width="12" height="32" rx="6" fill="#00394f"/>
+    <rect x="72" y="44" width="12" height="20" rx="6" fill="#00394f"/>
+    <!-- Heads -->
+    <circle cx="6"  cy="38" r="6" fill="#00394f"/>
+    <circle cx="24" cy="26" r="6" fill="#00394f"/>
+    <circle cx="42" cy="14" r="7" fill="#17a2b8"/>
+    <circle cx="60" cy="26" r="6" fill="#00394f"/>
+    <circle cx="78" cy="38" r="6" fill="#00394f"/>
+    <!-- Arc above suggesting unity / inclusion -->
+    <path d="M 0 74 Q 42 92 84 74" stroke="#17a2b8" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="110" y="52" font-family="Plus Jakarta Sans, Segoe UI, sans-serif" font-size="34" font-weight="800" fill="#00394f" letter-spacing="-1">EDAP</text>
+  <text x="110" y="74" font-family="Inter, Segoe UI, sans-serif" font-size="8" font-weight="600" fill="#5a6a73" letter-spacing="1">EMPOWERING THE DIFFERENTLY ABLED PERSONS PAKISTAN</text>
+</svg>
