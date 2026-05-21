@@ -8,21 +8,6 @@ Built by Aquib Ansari and Mohammed Aun Abbas as part of Habib University's **Khi
 
 ---
 
-## Overview
-
-A 6-page static site, no build step, no framework. Just HTML + CSS + a small JavaScript file. Deployed on Vercel; auto-deploys on every push to GitHub.
-
-### Pages
-
-| File | Page |
-|---|---|
-| `index.html` | Home |
-| `about.html` | About EDAP (the organization) |
-| `founder.html` | About the Founder (Ms. Shazia Hasan) |
-| `programs.html` | Programs — Computer Training, Sign Language, Counselling |
-| `media.html` | TEDx talk, interviews, photo gallery |
-| `contact.html` | Contact form + map |
-
 ### Folder structure
 
 ```
