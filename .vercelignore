@@ -1,0 +1,9 @@
+# Files Vercel should NOT publish to production
+.git
+.gitignore
+.vscode
+.idea
+*.pdf
+node_modules
+README.local.md
+logos-preview.html
