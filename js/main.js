@@ -105,6 +105,16 @@ function initFormHandlers() {
 function initAjaxForm(form, opts) {
   if (!form) return;
 
+  // Clear a field's error as soon as the user edits it
+  form.querySelectorAll("input, textarea, select").forEach((field) => {
+    if (field.type === "hidden" || field.name === "_gotcha") return;
+    const handler = () => {
+      if (field.classList.contains("is-invalid")) clearFieldError(field);
+    };
+    field.addEventListener("input", handler);
+    field.addEventListener("change", handler);
+  });
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -112,8 +122,16 @@ function initAjaxForm(form, opts) {
     const honeypot = form.querySelector("input[name='_gotcha']");
     if (honeypot && honeypot.value) return;
 
-    // Clear any prior banner
+    // Clear any prior banners + field errors
     form.querySelectorAll(".form-error").forEach((el) => el.remove());
+    clearAllFieldErrors(form);
+
+    // Client-side validation — required + valid email
+    const errors = validateForm(form);
+    if (errors.length > 0) {
+      showFieldErrors(form, errors, opts.compact);
+      return;
+    }
 
     // If the Formspree ID hasn't been replaced yet, fail loudly in dev
     if (form.action.includes("YOUR_FORMSPREE_ID")) {
@@ -266,6 +284,121 @@ function showFormError(form, message) {
   banner.setAttribute("role", "alert");
   banner.textContent = message;
   form.insertBefore(banner, form.firstChild);
+}
+
+/* ------------------------------------------------------------------
+   Client-side form validation
+------------------------------------------------------------------ */
+function validateForm(form) {
+  const errors = [];
+  const fields = form.querySelectorAll("input, textarea, select");
+
+  fields.forEach((field) => {
+    // Skip non-user-visible fields
+    if (
+      field.type === "hidden" ||
+      field.type === "submit" ||
+      field.type === "button" ||
+      field.name === "_gotcha"
+    ) {
+      return;
+    }
+
+    const value = (field.value || "").trim();
+
+    // Required check (treats whitespace-only input as empty)
+    if (field.required && !value) {
+      errors.push({
+        field,
+        message: `${getFieldLabel(field)} is required.`,
+      });
+      return;
+    }
+
+    // Email format check
+    if (field.type === "email" && value && !isValidEmail(value)) {
+      errors.push({
+        field,
+        message: "Please enter a valid email address.",
+      });
+    }
+  });
+
+  return errors;
+}
+
+function isValidEmail(str) {
+  // Pragmatic email regex — catches typos but doesn't try to enforce RFC 5322
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str);
+}
+
+function getFieldLabel(field) {
+  if (field.id) {
+    const label = document.querySelector(`label[for="${field.id}"]`);
+    if (label && label.textContent.trim()) {
+      return label.textContent.trim();
+    }
+  }
+  return field.placeholder || field.name || "This field";
+}
+
+function showFieldErrors(form, errors, compact) {
+  if (compact) {
+    // Single banner under the form (used by the newsletter pill)
+    const banner = document.createElement("p");
+    banner.className = "form-error-compact";
+    banner.setAttribute("role", "alert");
+    banner.textContent = errors[0].message;
+    form.parentNode.insertBefore(banner, form.nextSibling);
+    errors[0].field.classList.add("is-invalid");
+    errors[0].field.setAttribute("aria-invalid", "true");
+    errors[0].field.focus();
+    return;
+  }
+
+  // Inline per-field errors for the bigger forms
+  errors.forEach(({ field, message }) => {
+    field.classList.add("is-invalid");
+    field.setAttribute("aria-invalid", "true");
+
+    const msg = document.createElement("p");
+    msg.className = "field-error";
+    msg.setAttribute("role", "alert");
+    msg.textContent = message;
+    field.parentNode.insertBefore(msg, field.nextSibling);
+  });
+
+  errors[0].field.focus();
+}
+
+function clearAllFieldErrors(form) {
+  form.querySelectorAll(".field-error").forEach((el) => el.remove());
+  form.querySelectorAll(".is-invalid").forEach((el) => {
+    el.classList.remove("is-invalid");
+    el.removeAttribute("aria-invalid");
+  });
+  // Compact error banner sits OUTSIDE the form
+  const next = form.nextElementSibling;
+  if (next && next.classList && next.classList.contains("form-error-compact")) {
+    next.remove();
+  }
+}
+
+function clearFieldError(field) {
+  field.classList.remove("is-invalid");
+  field.removeAttribute("aria-invalid");
+  const next = field.nextElementSibling;
+  if (next && next.classList && next.classList.contains("field-error")) {
+    next.remove();
+  }
+  // Also clear any compact banner if this is a newsletter form
+  const form = field.closest("form");
+  if (form) {
+    const after = form.nextElementSibling;
+    if (after && after.classList && after.classList.contains("form-error-compact")) {
+      after.remove();
+    }
+  }
 }
 
 /* ------------------------------------------------------------------
