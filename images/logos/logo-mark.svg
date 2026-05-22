@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 90" role="img" aria-label="EDAP">
+  <circle cx="10" cy="10" r="9" fill="#17a2b8"/>
+  <circle cx="40" cy="10" r="9" fill="#00394f"/>
+  <circle cx="10" cy="40" r="9" fill="#00394f"/>
+  <circle cx="40" cy="40" r="9" fill="#17a2b8"/>
+  <circle cx="10" cy="70" r="9" fill="#17a2b8"/>
+  <circle cx="40" cy="70" r="9" fill="#00394f"/>
+</svg>
